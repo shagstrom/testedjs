@@ -7,7 +7,6 @@ import junit.framework.Assert;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.mortbay.jetty.Handler;
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.handler.HandlerList;
 import org.mortbay.jetty.handler.ResourceHandler;
@@ -17,13 +16,13 @@ import com.thoughtworks.selenium.Selenium;
 
 public abstract class SeleniumTest {
 
-	private final static String BUILD_MACHINE = "madmac";
-	private final static String[][] MACHINE_BROWSER_COMBINATIONS = {{"madmac", "*safari"}, {"madmac", "firefox"}};
+	private final static String BUILD_MACHINE = "localhost";
+	private final static String MACHINE_BROWSERS = "localhost:*safari";
 
 	private final static int SELENIUM_SERVER_PORT = 4444;
 	private final static int JETTY_PORT = 8089;
-	private final int DEFAULT_TIME_FOR_JS_TEST = 1000;
-	private final static String JS_TEST_WEB_ROOT = "http://" + BUILD_MACHINE + ":" + JETTY_PORT +"/jsunit/";
+	private final int DEFAULT_TIME_FOR_JS_TEST = 5000;
+	private final static String JS_TEST_URL = "http://" + BUILD_MACHINE + ":" + JETTY_PORT +"/jsunit/";
 	private static Server jettyServer;
 	private static List<Selenium> selenia;
 
@@ -64,12 +63,10 @@ public abstract class SeleniumTest {
 	
 	private static List<Selenium> createSelenia() {
 		List<Selenium> selenia = new ArrayList<Selenium>();
-		for (String[] machineBrowser : MACHINE_BROWSER_COMBINATIONS) {
-			String machine = machineBrowser[0];
-			String browser = machineBrowser[1];
-			Selenium selenium = new DefaultSelenium(machine, SELENIUM_SERVER_PORT, browser, JS_TEST_WEB_ROOT);
-			selenia.add(selenium);
-		}
+		List<Machine> machines = Machine.valuesOf(MACHINE_BROWSERS);
+		for (Machine machine : machines)
+			for (String browser : machine.getBrowsers())
+				selenia.add(new DefaultSelenium(machine.getName(), SELENIUM_SERVER_PORT, browser, JS_TEST_URL));
 		return selenia;
 	}
 	
@@ -77,14 +74,16 @@ public abstract class SeleniumTest {
 
 		Server jettyServer = new Server(JETTY_PORT);
 		
+		HandlerList handlers = new HandlerList();
+		
 		ResourceHandler mainHandler = new ResourceHandler();
 		mainHandler.setResourceBase("src/main/webapp");
+		handlers.addHandler(mainHandler);
+		
 		
 		ResourceHandler testHandler = new ResourceHandler();
 		testHandler.setResourceBase("src/test/webapp");
-		
-		HandlerList handlers = new HandlerList();
-		handlers.setHandlers(new Handler[] { mainHandler, testHandler});
+		handlers.addHandler(testHandler);
 		
 		jettyServer.setHandler(handlers);
 
