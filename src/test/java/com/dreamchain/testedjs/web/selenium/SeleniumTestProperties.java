@@ -27,9 +27,11 @@ public class SeleniumTestProperties {
 	
 	static {
 		Properties properties = new Properties();
-
+		FileInputStream inputStream = null;
 		try {
-			properties.load(new FileInputStream(PROPERTIES_FILE_LOCATION));
+			inputStream = new FileInputStream(PROPERTIES_FILE_LOCATION);
+			properties.load(inputStream);
+
 		} catch(IOException e) {
 			Log log = LogFactory.getLog(SeleniumTestProperties.class);
 			log.warn("Could not read properties file from '" + PROPERTIES_FILE_LOCATION + "' Using default values.");
@@ -42,7 +44,15 @@ public class SeleniumTestProperties {
 		DEFAULT_TIME_FOR_JAVASCRIPT_TO_FINISH = 
 			Integer.parseInt(properties.getProperty("default-time-for-javascript-test-to-finish", DEFAULT_DEFAULT_TIME_FOR_JAVASCRIPT_TO_FINISH));
 		JETTY_SERVER_WEB_ROOTs = properties.getProperty("javascript-test-webroots", DEFAULT_JETTY_SERVER_WEB_ROOTS).split("\\s*;\\s*");
-
+		
+		if (inputStream != null) {
+			try {
+				inputStream.close();
+			} catch (IOException e) {
+				// Java drives me mad! How am I supposed to recover from this?
+			}
+		}
+		
 	}
 
 }
