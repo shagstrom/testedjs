@@ -1,4 +1,6 @@
-package com.dreamchain.js.web.jsunit;
+package com.dreamchain.testedjs.web.selenium;
+
+import static com.dreamchain.testedjs.web.selenium.SeleniumTestProperties.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,18 +18,13 @@ import com.thoughtworks.selenium.Selenium;
 
 public abstract class SeleniumTest {
 
-	private final static String BUILD_MACHINE = "localhost";
-	private final static String MACHINE_BROWSERS = "localhost:*safari";
+	private final static String JS_TEST_URL = "http://" + BUILD_MACHINE + ":" + JETTY_PORT + "/";
 
-	private final static int SELENIUM_SERVER_PORT = 4444;
-	private final static int JETTY_PORT = 8089;
-	private final int DEFAULT_TIME_FOR_JS_TEST = 5000;
-	private final static String JS_TEST_URL = "http://" + BUILD_MACHINE + ":" + JETTY_PORT +"/jsunit/";
 	private static Server jettyServer;
 	private static List<Selenium> selenia;
-
+	
 	protected void assertScriptacuolusTestPasses(String url) throws InterruptedException {
-		assertScriptacuolusTestPasses(url, DEFAULT_TIME_FOR_JS_TEST);
+		assertScriptacuolusTestPasses(url, DEFAULT_TIME_FOR_JAVASCRIPT_TO_FINISH);
 	}
 
 	protected void assertScriptacuolusTestPasses(String url, int timeForJSTest) throws InterruptedException {
@@ -71,24 +68,15 @@ public abstract class SeleniumTest {
 	}
 	
 	private static Server createJettyServer() {
-
 		Server jettyServer = new Server(JETTY_PORT);
-		
 		HandlerList handlers = new HandlerList();
-		
-		ResourceHandler mainHandler = new ResourceHandler();
-		mainHandler.setResourceBase("src/main/webapp");
-		handlers.addHandler(mainHandler);
-		
-		
-		ResourceHandler testHandler = new ResourceHandler();
-		testHandler.setResourceBase("src/test/webapp");
-		handlers.addHandler(testHandler);
-		
+		for (String webroot : JETTY_SERVER_WEB_ROOTs) {
+			ResourceHandler handler = new ResourceHandler();
+			handler.setResourceBase(webroot);
+			handlers.addHandler(handler);
+		}
 		jettyServer.setHandler(handlers);
-
 		return jettyServer;
-
 	}
 	
 	protected List<Selenium> getSelenia() {

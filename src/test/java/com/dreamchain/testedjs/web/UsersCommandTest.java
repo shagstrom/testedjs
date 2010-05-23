@@ -1,4 +1,4 @@
-package com.dreamchain.js.web;
+package com.dreamchain.testedjs.web;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import com.dreamchain.js.model.User;
+import com.dreamchain.js.web.UsersCommand;
 
 public class UsersCommandTest {
 	

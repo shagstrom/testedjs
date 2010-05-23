@@ -1,4 +1,4 @@
-package com.dreamchain.js;
+package com.dreamchain.testedjs;
 
 import org.junit.Test;
 import org.springframework.ui.ExtendedModelMap;

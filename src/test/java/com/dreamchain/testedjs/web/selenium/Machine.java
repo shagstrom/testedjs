@@ -1,4 +1,4 @@
-package com.dreamchain.js.web.jsunit;
+package com.dreamchain.testedjs.web.selenium;
 
 import java.util.ArrayList;
 import java.util.List;
