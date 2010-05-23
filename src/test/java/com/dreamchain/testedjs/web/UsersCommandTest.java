@@ -12,8 +12,8 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import com.dreamchain.js.model.User;
-import com.dreamchain.js.web.UsersCommand;
+import com.dreamchain.testedjs.model.User;
+import com.dreamchain.testedjs.web.UsersCommand;
 
 public class UsersCommandTest {
 	

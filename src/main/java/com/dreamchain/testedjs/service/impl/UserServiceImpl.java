@@ -1,4 +1,4 @@
-package com.dreamchain.js.service.impl;
+package com.dreamchain.testedjs.service.impl;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dreamchain.js.dao.UserDao;
-import com.dreamchain.js.model.User;
-import com.dreamchain.js.service.UserService;
+import com.dreamchain.testedjs.dao.UserDao;
+import com.dreamchain.testedjs.model.User;
+import com.dreamchain.testedjs.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {

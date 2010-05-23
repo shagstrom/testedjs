@@ -1,9 +1,9 @@
-package com.dreamchain.js.web;
+package com.dreamchain.testedjs.web;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.dreamchain.js.model.User;
+import com.dreamchain.testedjs.model.User;
 
 public class UserCommand {
 

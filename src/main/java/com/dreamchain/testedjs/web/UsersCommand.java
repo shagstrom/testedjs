@@ -1,11 +1,11 @@
-package com.dreamchain.js.web;
+package com.dreamchain.testedjs.web;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 
-import com.dreamchain.js.model.User;
+import com.dreamchain.testedjs.model.User;
 
 public class UsersCommand {
 	

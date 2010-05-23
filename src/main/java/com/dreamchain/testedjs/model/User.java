@@ -1,4 +1,4 @@
-package com.dreamchain.js.model;
+package com.dreamchain.testedjs.model;
 
 import java.io.Serializable;
 

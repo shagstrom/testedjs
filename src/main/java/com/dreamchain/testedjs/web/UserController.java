@@ -1,4 +1,4 @@
-package com.dreamchain.js.web;
+package com.dreamchain.testedjs.web;
 
 import javax.validation.Valid;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.dreamchain.js.service.UserService;
+import com.dreamchain.testedjs.service.UserService;
 
 @Controller
 @RequestMapping(UserController.URL)

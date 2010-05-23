@@ -1,4 +1,4 @@
-package com.dreamchain.js.dao.impl;
+package com.dreamchain.testedjs.dao.impl;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.dreamchain.js.dao.UserDao;
-import com.dreamchain.js.model.User;
+import com.dreamchain.testedjs.dao.UserDao;
+import com.dreamchain.testedjs.model.User;
 
 @Repository
 public class UserDaoImpl implements UserDao {

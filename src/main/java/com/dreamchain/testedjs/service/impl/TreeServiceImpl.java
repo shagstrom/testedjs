@@ -1,9 +1,9 @@
-package com.dreamchain.js.service.impl;
+package com.dreamchain.testedjs.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.dreamchain.js.model.Tree;
-import com.dreamchain.js.service.TreeService;
+import com.dreamchain.testedjs.model.Tree;
+import com.dreamchain.testedjs.service.TreeService;
 
 @Service
 public class TreeServiceImpl implements TreeService {

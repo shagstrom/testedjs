@@ -1,10 +1,10 @@
-package com.dreamchain.testedjs;
+package com.dreamchain.testedjs.web;
 
 import org.junit.Test;
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
 
-import com.dreamchain.js.web.UserController;
+import com.dreamchain.testedjs.web.UserController;
 
 public class UserControllerTests {
 	

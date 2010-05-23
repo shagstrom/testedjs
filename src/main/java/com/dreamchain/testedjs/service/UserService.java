@@ -1,8 +1,8 @@
-package com.dreamchain.js.service;
+package com.dreamchain.testedjs.service;
 
 import java.util.List;
 
-import com.dreamchain.js.model.User;
+import com.dreamchain.testedjs.model.User;
 
 public interface UserService {
 	

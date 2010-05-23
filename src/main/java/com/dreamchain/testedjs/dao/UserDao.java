@@ -1,8 +1,8 @@
-package com.dreamchain.js.dao;
+package com.dreamchain.testedjs.dao;
 
 import java.util.List;
 
-import com.dreamchain.js.model.User;
+import com.dreamchain.testedjs.model.User;
 
 public interface UserDao {
 
