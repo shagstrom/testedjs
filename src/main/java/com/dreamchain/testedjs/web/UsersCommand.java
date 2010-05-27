@@ -19,10 +19,10 @@ public class UsersCommand {
 			userCommands.add(new UserCommand(user));
 	}
 	
-	public List<User> getModifiedUsers() {
+	public List<User> getSelectedUsers() {
 		List<User> users = new ArrayList<User>();
 		for (UserCommand userCommand : userCommands)
-			if (userCommand.getModified())
+			if (userCommand.getSelected())
 				users.add(userCommand.toUser());
 		return users;
 	}

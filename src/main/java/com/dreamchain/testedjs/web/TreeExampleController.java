@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.dreamchain.testedjs.service.TreeService;
 
 @Controller()
-@RequestMapping(value = "/tree")
-public class TreeController {
+@RequestMapping(value = "/treeExample")
+public class TreeExampleController {
 
 	@Autowired TreeService treeService;
 	

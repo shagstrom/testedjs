@@ -14,9 +14,9 @@
 	<bean id="myDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/js" />
-		<property name="username" value="js" />
-		<property name="password" value="password" />
+		<property name="url" value="jdbc:mysql://localhost:3306/yourDatabase" />
+		<property name="username" value="yourUsername" />
+		<property name="password" value="yourPassword" />
 	</bean>
 
 	<!-- Hibernate -->

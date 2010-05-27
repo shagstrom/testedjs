@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
 
-        <mapping class="com.dreamchain.js.model.User" />
+        <mapping class="com.dreamchain.testedjs.model.User" />
 
 		<event type="pre-update">
 	        <listener class="org.hibernate.validator.event.ValidatePreUpdateEventListener"/>

@@ -1,6 +1,11 @@
 package com.dreamchain.testedjs.web.selenium;
 
-import static com.dreamchain.testedjs.web.selenium.SeleniumTestProperties.*;
+import static com.dreamchain.testedjs.web.selenium.SeleniumTestProperties.BUILD_MACHINE;
+import static com.dreamchain.testedjs.web.selenium.SeleniumTestProperties.DEFAULT_TIME_FOR_JAVASCRIPT_TO_FINISH;
+import static com.dreamchain.testedjs.web.selenium.SeleniumTestProperties.JETTY_PORT;
+import static com.dreamchain.testedjs.web.selenium.SeleniumTestProperties.JETTY_SERVER_WEB_ROOTs;
+import static com.dreamchain.testedjs.web.selenium.SeleniumTestProperties.MACHINE_BROWSERS;
+import static com.dreamchain.testedjs.web.selenium.SeleniumTestProperties.SELENIUM_SERVER_PORT;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +15,7 @@ import junit.framework.Assert;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.mortbay.jetty.Server;
+import org.mortbay.jetty.handler.DefaultHandler;
 import org.mortbay.jetty.handler.HandlerList;
 import org.mortbay.jetty.handler.ResourceHandler;
 
@@ -70,11 +76,13 @@ public abstract class SeleniumTest {
 	private static Server createJettyServer() {
 		Server jettyServer = new Server(JETTY_PORT);
 		HandlerList handlers = new HandlerList();
+		handlers.addHandler(new FilterHandler());
 		for (String webroot : JETTY_SERVER_WEB_ROOTs) {
 			ResourceHandler handler = new ResourceHandler();
 			handler.setResourceBase(webroot);
 			handlers.addHandler(handler);
 		}
+		handlers.addHandler(new DefaultHandler());
 		jettyServer.setHandler(handlers);
 		return jettyServer;
 	}

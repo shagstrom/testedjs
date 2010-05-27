@@ -32,7 +32,8 @@ public class Machine {
 		List<Machine> machines = new ArrayList<Machine>();
 		String[] machineStrings = s.split("\\s*;\\s*");
 		for (String machineString : machineStrings)
-			machines.add(new Machine(machineString));
+			if (!machineString.isEmpty())
+				machines.add(new Machine(machineString));
 		return machines;
 	}
 

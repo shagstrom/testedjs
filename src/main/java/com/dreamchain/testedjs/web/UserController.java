@@ -46,7 +46,7 @@ public class UserController {
 	public String put(Model model, @Valid UsersCommand usersCommand, BindingResult result) {
 		if (result.hasErrors())
 			return URL;
-		userService.saveAll(usersCommand.getModifiedUsers());
+		userService.saveAll(usersCommand.getSelectedUsers());
 		return "redirect:" + URL;
 	}
 	

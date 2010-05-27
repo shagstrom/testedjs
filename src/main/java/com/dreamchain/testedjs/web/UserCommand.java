@@ -18,7 +18,7 @@ public class UserCommand {
 	@NotEmpty
 	private String address;
 	
-	private Boolean modified = false;
+	private Boolean selected = false;
 	
 	public UserCommand() {}
 
@@ -73,12 +73,12 @@ public class UserCommand {
 		this.address = address;
 	}
 
-	public Boolean getModified() {
-		return modified;
+	public Boolean getSelected() {
+		return selected;
 	}
 	
-	public void setModified(Boolean changed) {
-		this.modified = changed;
+	public void setSelected(Boolean changed) {
+		this.selected = changed;
 	}
 	
 }

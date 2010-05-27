@@ -6,9 +6,9 @@
 	<head>
 		<title>Users</title>
 		<link rel="stylesheet" href="<c:url value='/styles/default.css' />" type="text/css" />
-		<script type="text/javascript" src="<c:url value='/scripts/prototype.js' />"></script>
-		<script type="text/javascript" src="<c:url value='/scripts/RowSelector.js' />"></script>
-		<script type="text/javascript" src="<c:url value='/scripts/main.js' />"></script>
+		<script type="text/javascript" src="<c:url value='/scripts/lib/prototype.js' />"></script>
+		<script type="text/javascript" src="<c:url value='/scripts/lib/RowSelector.js' />"></script>
+		<script type="text/javascript" src="<c:url value='/scripts/user.js' />"></script>
 	</head>
 	<body>
 		<h1>Users</h1>
@@ -49,19 +49,19 @@
 					<c:forEach var="user" items="${usersCommand.userCommands}" varStatus="row">
 						<tr>
 							<td>
-								<form:checkbox cssClass="rowSelector" path="userCommands[${row.index}].modified" />
+								<form:checkbox cssClass="rowSelector" path="userCommands[${row.index}].selected" />
 							</td>
 							<td>
 								<form:errors path="userCommands[${row.index}].name" cssClass="error" />
-								<form:input disabled="${!user.modified}" path="userCommands[${row.index}].name" />
+								<form:input disabled="${!user.selected}" path="userCommands[${row.index}].name" />
 							</td>
 							<td>
 								<form:errors path="userCommands[${row.index}].email" cssClass="error" />
-								<form:input disabled="${!user.modified}" path="userCommands[${row.index}].email" />
+								<form:input disabled="${!user.selected}" path="userCommands[${row.index}].email" />
 							</td>
 							<td>
 								<form:errors path="userCommands[${row.index}].address" cssClass="error" />
-								<form:input disabled="${!user.modified}" path="userCommands[${row.index}].address" />
+								<form:input disabled="${!user.selected}" path="userCommands[${row.index}].address" />
 							</td>
 						</tr>
 					</c:forEach>

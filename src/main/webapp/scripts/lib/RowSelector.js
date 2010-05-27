@@ -4,6 +4,10 @@ var RowSelector = (function(){
 		$(document.body).observe('click', clickHandler);
 	}
 	
+	function unbindEvents() {
+		$(document.body).stopObserving('click', clickHandler);
+	}
+	
 	function clickHandler(event) {
 		var target = event.element();
 		if (target.match('.rowSelector')) {
@@ -31,7 +35,8 @@ var RowSelector = (function(){
 	}
 	
 	return {
-		bindEvents: bindEvents
+		bindEvents: bindEvents,
+		unbindEvents: unbindEvents
 	};
 
 })();

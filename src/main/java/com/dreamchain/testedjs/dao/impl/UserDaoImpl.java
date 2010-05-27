@@ -12,7 +12,6 @@ import com.dreamchain.testedjs.model.User;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-	@Autowired(required=true)
 	private SessionFactory sessionFactory;
 
 	public User get(Long id) {
@@ -33,6 +32,11 @@ public class UserDaoImpl implements UserDao {
 	public void save(User user) {
 		sessionFactory.getCurrentSession().merge(user);
 		
+	}
+	
+	@Autowired
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 
 }

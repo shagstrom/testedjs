@@ -10,7 +10,7 @@
 		Scans within the base package of the application for @Components to
 		configure as beans
 	-->
-	<context:component-scan base-package="com.dreamchain.js" />
+	<context:component-scan base-package="com.dreamchain.testedjs" />
 
 	<!-- Bean Validation -->
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />

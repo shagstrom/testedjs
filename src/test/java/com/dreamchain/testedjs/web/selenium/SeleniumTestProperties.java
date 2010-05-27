@@ -19,7 +19,7 @@ public class SeleniumTestProperties {
 	public static final String[] JETTY_SERVER_WEB_ROOTs;
 	
 	private static final String DEFAULT_BUILD_MACHINE = "localhost";
-	private static final String DEFAULT_MACHINE_BROWSERS = "localhost:*firefox";;
+	private static final String DEFAULT_MACHINE_BROWSERS = "";
 	private static final String DEFAULT_SELENIUM_SERVER_PORT = "4444";
 	private static final String DEFAULT_JETTY_PORT = "8088";
 	private static final String DEFAULT_DEFAULT_TIME_FOR_JAVASCRIPT_TO_FINISH = "1000";
@@ -31,10 +31,9 @@ public class SeleniumTestProperties {
 		try {
 			inputStream = new FileInputStream(PROPERTIES_FILE_LOCATION);
 			properties.load(inputStream);
-
 		} catch(IOException e) {
 			Log log = LogFactory.getLog(SeleniumTestProperties.class);
-			log.warn("Could not read properties file from '" + PROPERTIES_FILE_LOCATION + "' Using default values.");
+			log.warn("Could not read properties file from '" + PROPERTIES_FILE_LOCATION + "'. Using default values.");
 		}
 
 		BUILD_MACHINE = properties.getProperty("build-machine", DEFAULT_BUILD_MACHINE);

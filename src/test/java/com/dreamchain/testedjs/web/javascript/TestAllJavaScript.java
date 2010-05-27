@@ -11,4 +11,9 @@ public class TestAllJavaScript extends SeleniumTest {
 		assertScriptacuolusTestPasses("jsunit/rowSelectorTest.html");
 	}
 	
+	@Test
+	public void dynamicTree() throws Exception {
+		assertScriptacuolusTestPasses("jsunit/dynamicTreeTest.html");
+	}
+	
 }
