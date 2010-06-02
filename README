@@ -1,3 +1,16 @@
 This Spring MVC application is intended to demonstrate how to write tested JavaScript.
 
-It's a Maven project, so to build it run 'mvn clean install'.
+!!! You need Java 6 to build and run this application. !!!
+
+It's a Maven project.
+
+
+First edit the Data Source properties in
+
+/testedjs/src/main/webapp/WEB-INF/spring/persistence-config.xml
+
+to reflect your database.
+
+Then run 'mvn clean install' from terminal or your IDE, then deploy to e.g. Tomcat 6.
+
+That's it!
