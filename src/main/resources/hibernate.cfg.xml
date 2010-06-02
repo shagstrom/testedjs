@@ -3,16 +3,17 @@
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
+	<session-factory>
 
-        <mapping class="com.dreamchain.testedjs.model.User" />
+	<mapping class="com.dreamchain.testedjs.model.User" />
 
-		<event type="pre-update">
-	        <listener class="org.hibernate.validator.event.ValidatePreUpdateEventListener"/>
-	    </event>
-	    <event type="pre-insert">
-	        <listener class="org.hibernate.validator.event.ValidatePreInsertEventListener"/>
-	    </event>
-	    
-    </session-factory>
+	<!--<event type="pre-update">-->
+		<!--<listener class="org.hibernate.validator.event.ValidatePreUpdateEventListener"/>-->
+	<!--</event>-->
+	<!---->
+	<!--<event type="pre-insert">-->
+		<!--<listener class="org.hibernate.validator.event.ValidatePreInsertEventListener"/>-->
+	<!--</event>-->
+
+	</session-factory>
 </hibernate-configuration>

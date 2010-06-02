@@ -14,20 +14,18 @@
 	<bean id="myDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/yourDatabase" />
-		<property name="username" value="yourUsername" />
-		<property name="password" value="yourPassword" />
+		<property name="url" value="jdbc:mysql://localhost:3306/testedjs" />
+		<property name="username" value="testedjs" />
+		<property name="password" value="password" />
 	</bean>
 
 	<!-- Hibernate -->
 	<bean id="mySessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource" ref="myDataSource" />
+		<property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration" />
 		<property name="configLocation">
 			<value>classpath:hibernate.cfg.xml</value>
-		</property>
-		<property name="configurationClass">
-			<value>org.hibernate.cfg.AnnotationConfiguration</value>
 		</property>
 		<property name="hibernateProperties">
 			<props>
